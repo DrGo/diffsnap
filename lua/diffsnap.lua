@@ -205,8 +205,7 @@ function M.show()
 			fn.sign_place(sign_id, sign_group, sign_name, bufnr, { lnum = lnum })
 			table.insert(placed_signs[bufnr], sign_id)
 			table.insert(sign_positions[bufnr], lnum)
-
-			local del_lines = { { string.format("  %d line%s deleted: ", count_a, count_a > 1 and "s" or ""), "Comment" } }
+			local del_lines = { { { string.format("  %d line%s deleted: ", count_a, count_a > 1 and "s" or ""), "Comment" } } }
 			for i = 0, count_a - 1 do
 				local dl = orig[start_a + i]
 				if dl then table.insert(del_lines, { { "  ─ ", "DiffSnapDelete" }, { dl, "DiffSnapDeletedContent" } }) end
